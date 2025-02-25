@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+           text-align: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+        .slideshow-container {
+            max-width: 90%;
+            position: relative;
+            margin: auto;
+            width: 400px;
+            height: 500px;
+            overflow: hidden;
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images are fully visible without scrolling */
+            border-radius: 10px;
+        }
+        .btn {
+            background: #ff4e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .btn {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+            .slideshow-container {
+                width: 100%;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday, 🎂</h1>
+    <p>Wishing you all the happiness in the world!</p>
+    
+    <div class="slideshow-container">
+        <img class="slides" src="./Nessa-1.jpg" alt="Pic 1">
+        <img class="slides" src="./Nessa-2.jpg" alt="Pic 2">
+        <img class="slides" src="./Nessa-3.jpg" alt="Pic 3">
+        <img class="slides" src="./Nessa-4.jpg" alt="Pic 4">
+        <img class="slides" src="./Nessa-5.jpg" alt="Pic 5">
+    </div>
+    
+    <button class="btn" onclick="showMessage()">Click for a Surprise!</button>
+
+     <audio id="birthdayAudio" src="happy-birthday.mp3"></audio>
+    
+    <script>
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000);
+        }
+        showSlides();
+        
+        function showMessage() {
+            alert("🎊 Happy Birthday! Wishing you an amazing year ahead! 🎈🎂. Have fun and take good care of yourself.");
+             let audio = document.getElementById("birthdayAudio");
+            audio.play();
+        }
+    </script>
+</body>
+</html>
